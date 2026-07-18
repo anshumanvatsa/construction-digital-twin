@@ -61,8 +61,8 @@ export default function LoginPage() {
         >
           <Card className="glass-strong border-border/30 shadow-2xl">
             <CardHeader className="space-y-3 pb-2">
-              <div className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-br from-primary to-accent text-primary-foreground">
-                <Activity className="h-5 w-5" />
+              <div className="inline-flex h-10 w-10 items-center justify-center rounded-lg overflow-hidden">
+                <img src="/logo.png" alt="SafeSite Logo" className="w-full h-full object-cover" />
               </div>
               <CardTitle className="text-xl">Welcome back</CardTitle>
               <CardDescription>Sign in to access the construction safety dashboard.</CardDescription>
