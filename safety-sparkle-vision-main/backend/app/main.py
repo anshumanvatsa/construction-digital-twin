@@ -158,7 +158,7 @@ async def websocket_simulation(websocket: WebSocket) -> None:
         logger.exception("websocket_failed")
 
 # Serve React App
-dist_path = os.path.join(os.path.dirname(__file__), "../../dist")
+dist_path = os.path.join(os.path.dirname(__file__), "../dist")
 if os.path.exists(dist_path):
     app.mount("/assets", StaticFiles(directory=os.path.join(dist_path, "assets")), name="assets")
     
