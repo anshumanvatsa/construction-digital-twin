@@ -13,7 +13,7 @@ type RequestOptions = Omit<RequestInit, "body"> & {
   auth?: boolean;
 };
 
-const API_BASE_URL = "http://localhost:8000";
+const API_BASE_URL = import.meta.env.VITE_API_URL || "/api";
 const TOKEN_STORAGE_KEY = "auth_token";
 const REFRESH_TOKEN_STORAGE_KEY = "auth_refresh_token";
 

@@ -8,15 +8,15 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 class Settings(BaseSettings):
     project_name: str = "Construction Site Digital Twin Backend"
     environment: str = "dev"
-    api_v1_prefix: str = ""
+    api_v1_prefix: str = "/api"
 
-    db_host: str = "postgres"
+    db_host: str = ""
     db_port: int = 5432
     db_user: str = "postgres"
     db_password: str = "postgres"
     db_name: str = "construction_twin"
 
-    redis_url: str = "redis://redis:6379/0"
+    redis_url: str = "redis://localhost:6379/0"
 
     simulation_interval_seconds: float = 1.0
     simulation_channel: str = "simulation:updates"
@@ -43,6 +43,8 @@ class Settings(BaseSettings):
 
     @property
     def sqlalchemy_database_uri(self) -> str:
+        if not self.db_host:
+            return "sqlite+aiosqlite:///./app.db"
         return (
             f"postgresql+asyncpg://{self.db_user}:{self.db_password}"
             f"@{self.db_host}:{self.db_port}/{self.db_name}"

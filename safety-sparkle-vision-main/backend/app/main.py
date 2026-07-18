@@ -3,7 +3,10 @@ from contextlib import asynccontextmanager
 from datetime import datetime, timezone
 import json
 
+import os
 from fastapi import FastAPI, WebSocket, WebSocketDisconnect
+from fastapi.responses import FileResponse
+from fastapi.staticfiles import StaticFiles
 from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy import text
 import structlog
@@ -153,3 +156,19 @@ async def websocket_simulation(websocket: WebSocket) -> None:
     except Exception:
         connection_manager.disconnect(websocket)
         logger.exception("websocket_failed")
+
+# Serve React App
+dist_path = os.path.join(os.path.dirname(__file__), "../../dist")
+if os.path.exists(dist_path):
+    app.mount("/assets", StaticFiles(directory=os.path.join(dist_path, "assets")), name="assets")
+    
+    @app.get("/{full_path:path}")
+    async def serve_frontend(full_path: str):
+        # Serve static files if they exist in dist root (like favicon.ico)
+        file_path = os.path.join(dist_path, full_path)
+        if full_path and os.path.isfile(file_path):
+            return FileResponse(file_path)
+        # Fallback to index.html for SPA routing
+        return FileResponse(os.path.join(dist_path, "index.html"))
+else:
+    logger.warning("Frontend dist folder not found. API only mode.")
