@@ -21,8 +21,8 @@ export function AppSidebar() {
       {/* Logo */}
       <div className="p-5 border-b border-border/20">
         <div className="flex items-center gap-2.5">
-          <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center">
-            <Activity className="w-4 h-4 text-primary-foreground" />
+          <div className="w-8 h-8 rounded-lg overflow-hidden flex items-center justify-center">
+            <img src="/logo.png" alt="SafeSite Logo" className="w-full h-full object-cover" />
           </div>
           <div>
             <h1 className="text-sm font-bold text-foreground tracking-tight">SafeSite</h1>
