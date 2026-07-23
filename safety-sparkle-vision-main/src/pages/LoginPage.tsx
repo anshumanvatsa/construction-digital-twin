@@ -16,8 +16,8 @@ export default function LoginPage() {
   const { isAuthenticated, login } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("admin@site.local");
+  const [password, setPassword] = useState("admin12345");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
@@ -65,7 +65,7 @@ export default function LoginPage() {
                 <img src="/logo.png" alt="SafeSite Logo" className="w-full h-full object-cover" />
               </div>
               <CardTitle className="text-xl">Welcome back</CardTitle>
-              <CardDescription>Sign in to access the construction safety dashboard.</CardDescription>
+              <CardDescription>Sign in to access the construction safety dashboard. (Demo credentials pre-filled)</CardDescription>
             </CardHeader>
             <CardContent>
               <form onSubmit={onSubmit} className="space-y-4">
