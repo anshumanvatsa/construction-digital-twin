@@ -15,8 +15,6 @@
 ## 🚀 Live Demo
 
 **Access the live application here:** [http://13.60.57.168:4009](http://13.60.57.168:4009)
-- **Email:** `admin@site.local`
-- **Password:** `admin12345`
 
 ---
 
