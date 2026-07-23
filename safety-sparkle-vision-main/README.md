@@ -3,7 +3,7 @@
   <h1>SafeSite — Construction Digital Twin</h1>
   <p>Real-time construction site safety intelligence platform with predictive analytics and smart hazard detection.</p>
 
-  [![Live Deployment](https://img.shields.io/badge/Live_Deployment-13.60.57.168:4005-00C853?style=for-the-badge&logo=vercel)](http://13.60.57.168:4005)
+  [![Live Deployment](https://img.shields.io/badge/Live_Deployment-13.60.57.168:4009-00C853?style=for-the-badge&logo=vercel)](http://13.60.57.168:4009)
   [![React](https://img.shields.io/badge/React-18.x-61DAFB?style=for-the-badge&logo=react)](https://reactjs.org/)
   [![FastAPI](https://img.shields.io/badge/FastAPI-0.109-009688?style=for-the-badge&logo=fastapi)](https://fastapi.tiangolo.com/)
   [![Docker](https://img.shields.io/badge/Docker-Ready-2496ED?style=for-the-badge&logo=docker)](https://www.docker.com/)
@@ -14,7 +14,7 @@
 
 ## 🚀 Live Demo
 
-**Access the live application here:** [http://13.60.57.168:4005](http://13.60.57.168:4005)
+**Access the live application here:** [http://13.60.57.168:4009](http://13.60.57.168:4009)
 - **Email:** `admin@site.local`
 - **Password:** `admin12345`
 
@@ -40,10 +40,10 @@ From real-time fatigue monitoring to predictive hazard collision detection, Safe
 
 ```mermaid
 graph TD
-    UI[Frontend: React + Vite + Tailwind] -->|REST & WebSockets| API[Backend: FastAPI]
-    API --> DB[(PostgreSQL / SQLite)]
-    API --> Cache[(Redis - Pub/Sub)]
-    Cache --> Engine[Simulation Engine]
+    UI["Frontend: React + Vite + Tailwind"] -->|"REST and WebSockets"| API["Backend: FastAPI"]
+    API --> DB[("PostgreSQL / SQLite")]
+    API --> Cache[("Redis - Pub/Sub")]
+    Cache --> Engine["Simulation Engine"]
     Engine --> API
 ```
 
